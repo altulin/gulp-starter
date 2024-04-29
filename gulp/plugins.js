@@ -14,6 +14,9 @@ import cssnano from "cssnano";
 import cssPrettify from "postcss-prettify";
 import sortMediaQueries from "postcss-sort-media-queries";
 import mode from "gulp-mode";
+import emitty from "emitty";
+import pug from "gulp-pug";
+
 const sass = gulpSass(dartSass);
 
 export {
@@ -37,4 +40,6 @@ export {
   cssPrettify,
   sortMediaQueries,
   mode,
+  emitty,
+  pug,
 };

@@ -1,5 +1,5 @@
 const argv = {
-  // cache: true,
+  cache: true,
   debug: true,
   // fix: false,
   // minifyHtml: null,
@@ -14,7 +14,7 @@ const argv = {
   // для одностраничного приложения
   spa: false,
   throwErrors: false,
-  // robots: true,
+  robots: true,
 };
 
 export default argv;

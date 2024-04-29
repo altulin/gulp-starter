@@ -15,7 +15,7 @@ export const serve = () => {
     // files: ["./gulp/**/*"],
 
     server: {
-      baseDir: "./build",
+      baseDir: "./dev",
       middleware,
     },
   });

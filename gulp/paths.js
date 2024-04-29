@@ -1,21 +1,29 @@
 const SRC = "_src";
-const DIST = "build";
-const DEV = "dev";
+const dist = "build";
+const dev = "dev";
 
 export default {
   style: {
     src: `${SRC}/scss/**/*.scss`,
-    dist: `${DIST}/`,
-    dev: `${DEV}/`,
+    dist: `${dist}`,
+    dev: `${dev}`,
   },
   html: {
     src: `${SRC}/**/*.html`,
-    dist: `${DIST}`,
-    dev: `${DEV}`,
+    dist: `${dist}`,
+    dev: `${dev}`,
   },
   js: {
     src: `${SRC}/js/**/*.js`,
-    dist: `${DIST}/js`,
-    dev: `${DEV}/js`,
+    dist: `${dist}/js`,
+    dev: `${dev}/js`,
   },
+  pug: {
+    src: `${SRC}/pug/pages/*.pug`,
+    dist: `${dist}`,
+    dev: `${dev}`,
+  },
+
+  dev,
+  dist,
 };

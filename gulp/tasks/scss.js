@@ -46,5 +46,5 @@ export const scss = () => {
     .pipe($.sass().on("error", $.sass.logError))
     .pipe($.postcss(postcssPlugins))
     .pipe($.if(isDev, $.sourcemaps.write(".")))
-    .pipe($.dest(path.style[isDev ? "dev" : "dist"]));
+    .pipe($.dest(path[isDev ? "dev" : "dist"]));
 };
