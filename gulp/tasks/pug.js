@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import * as $ from "../plugins.js";
 import argv from "../argv.js";
 import errorHandler from "../error.js";
@@ -6,7 +7,8 @@ import path from "../paths.js";
 let emittyPug;
 
 export const pug = () => {
-  const isDev = $.mode().development();
+  const isDev = $.mode.development();
+
   if (!emittyPug) {
     emittyPug = $.emitty.setup("_src", "pug", {
       makeVinylFile: true,

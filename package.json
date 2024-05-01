@@ -6,17 +6,21 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp --development",
-    "prod": "gulp --production",
+    "build:test": "gulp --production --test",
+    "build:prod": "gulp --production --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.1.1",
     "autoprefixer": "^10.4.19",
     "browser-sync": "^3.0.2",
     "cssnano": "^7.0.1",
     "emitty": "^1.4.0",
+    "eslint": "^9.1.1",
+    "globals": "^15.1.0",
     "gulp": "^5.0.0",
     "gulp-debug": "^5.0.1",
     "gulp-if": "^3.0.0",

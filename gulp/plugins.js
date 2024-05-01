@@ -13,11 +13,14 @@ import postcss from "gulp-postcss";
 import cssnano from "cssnano";
 import cssPrettify from "postcss-prettify";
 import sortMediaQueries from "postcss-sort-media-queries";
-import mode from "gulp-mode";
+import gulpMode from "gulp-mode";
 import emitty from "emitty";
 import pug from "gulp-pug";
 
 const sass = gulpSass(dartSass);
+const mode = gulpMode({
+  modes: ["test", "prod", "development", "production"],
+});
 
 export {
   task,

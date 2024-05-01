@@ -1,5 +1,5 @@
 import * as $ from "./gulp/plugins.js";
-import { serve, scss, pug, images } from "./gulp/tasks/index.js";
+import { serve, scss, pug } from "./gulp/tasks/index.js";
 
 $.task("serve", serve);
 $.task("watch", () => {
@@ -7,6 +7,6 @@ $.task("watch", () => {
   $.watch("_src/**/*.pug", pug);
 });
 
-// $.task("default", $.parallel("serve", "watch"));
+$.task("default", $.parallel("serve", "watch"));
 
-$.task("default", images);
+// $.task("default", pug);
