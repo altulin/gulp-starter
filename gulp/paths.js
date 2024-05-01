@@ -5,8 +5,8 @@ const dev = "dev";
 export default {
   style: {
     src: `${SRC}/scss/**/*.scss`,
-    dist: `${dist}`,
-    dev: `${dev}`,
+    dist: `${dist}/css`,
+    dev: `${dev}/css`,
   },
   html: {
     src: `${SRC}/**/*.html`,

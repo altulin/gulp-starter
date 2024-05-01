@@ -1,3 +1,5 @@
+import argv from "./argv.js";
+
 import gulp, { task, series, parallel, watch, dest } from "gulp";
 import browserSync from "browser-sync";
 import connectHistoryApiFallback from "connect-history-api-fallback";
@@ -16,11 +18,10 @@ import sortMediaQueries from "postcss-sort-media-queries";
 import gulpMode from "gulp-mode";
 import emitty from "emitty";
 import pug from "gulp-pug";
+import { deleteAsync } from "del";
 
 const sass = gulpSass(dartSass);
-const mode = gulpMode({
-  modes: ["test", "prod", "development", "production"],
-});
+const mode = gulpMode(argv.mode);
 
 export {
   task,
@@ -45,4 +46,5 @@ export {
   mode,
   emitty,
   pug,
+  deleteAsync,
 };

@@ -18,6 +18,7 @@
     "autoprefixer": "^10.4.19",
     "browser-sync": "^3.0.2",
     "cssnano": "^7.0.1",
+    "del": "^7.1.0",
     "emitty": "^1.4.0",
     "eslint": "^9.1.1",
     "globals": "^15.1.0",

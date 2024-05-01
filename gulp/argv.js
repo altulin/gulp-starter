@@ -15,6 +15,9 @@ const argv = {
   spa: false,
   throwErrors: false,
   robots: true,
+  mode: {
+    modes: ["test", "prod", "development", "production"],
+  },
 };
 
 export default argv;

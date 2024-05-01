@@ -48,7 +48,7 @@ export const pug = () => {
             pretty: argv.minifyHtml ? false : "\t",
           })
         )
-        .pipe($.dest(path[isDev ? "dev" : "dist"]))
+        .pipe($.dest(path.pug[isDev ? "dev" : "dist"]))
         .on("end", resolve)
         .on("error", reject);
     });

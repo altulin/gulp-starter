@@ -4,7 +4,7 @@ import errorHandler from "../error.js";
 import path from "../paths.js";
 
 export const scss = () => {
-  const isDev = $.mode().development();
+  const isDev = $.mode.development();
 
   const postcssPlugins = [
     $.autoprefixer({
@@ -46,5 +46,5 @@ export const scss = () => {
     .pipe($.sass().on("error", $.sass.logError))
     .pipe($.postcss(postcssPlugins))
     .pipe($.if(isDev, $.sourcemaps.write(".")))
-    .pipe($.dest(path[isDev ? "dev" : "dist"]));
+    .pipe($.dest(path.style[isDev ? "dev" : "dist"]));
 };
