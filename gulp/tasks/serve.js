@@ -12,7 +12,7 @@ export const serve = () => {
     notify: argv.notify,
     open: argv.open,
     port: argv.port,
-    // files: ["./gulp/**/*"],
+    files: ["./dev/**/*"],
 
     server: {
       baseDir: "./dev",

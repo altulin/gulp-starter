@@ -2,11 +2,11 @@ const argv = {
   cache: true,
   debug: true,
   // fix: false,
-  // minifyHtml: null,
-  minifyCss: null,
-  // minifyJs: null,
+  minifyHtml: false,
+  minifyCss: false,
+  minifyJs: false,
   // minifySvg: null,
-  // уведомления в броузере
+  // уведомления в браузере
   notify: false,
   // открыть страницу при загрузке
   open: false,

@@ -3,7 +3,7 @@ const dist = "build";
 const dev = "dev";
 
 export default {
-  style: {
+  scss: {
     src: `${SRC}/scss/**/*.scss`,
     dist: `${dist}/css`,
     dev: `${dev}/css`,
@@ -14,12 +14,17 @@ export default {
     dev: `${dev}`,
   },
   js: {
-    src: `${SRC}/js/**/*.js`,
+    src: `${SRC}/js`,
     dist: `${dist}/js`,
     dev: `${dev}/js`,
   },
   pug: {
     src: `${SRC}/pug/pages/*.pug`,
+    dist: `${dist}`,
+    dev: `${dev}`,
+  },
+  fonts: {
+    src: `${SRC}/fonts`,
     dist: `${dist}`,
     dev: `${dev}`,
   },

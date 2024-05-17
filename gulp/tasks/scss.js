@@ -35,7 +35,7 @@ export const scss = () => {
   }
 
   return $.gulp
-    .src(["_src/scss/*.scss", "!_src/scss/_*.scss"])
+    .src(["_src/scss/*.scss"])
     .pipe(
       $.plumber({
         errorHandler,
@@ -46,5 +46,5 @@ export const scss = () => {
     .pipe($.sass().on("error", $.sass.logError))
     .pipe($.postcss(postcssPlugins))
     .pipe($.if(isDev, $.sourcemaps.write(".")))
-    .pipe($.dest(path.style[isDev ? "dev" : "dist"]));
+    .pipe($.dest(path.scss[isDev ? "dev" : "dist"]));
 };

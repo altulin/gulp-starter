@@ -1,16 +1,27 @@
+import { cleanDev } from "./gulp/del/dev.js";
 import * as $ from "./gulp/plugins.js";
-import { serve, scss, pug } from "./gulp/tasks/index.js";
+import {
+  serve,
+  scss,
+  pug,
+  fonts,
+  cleanTtf,
+  copyFonts,
+  js,
+} from "./gulp/tasks/index.js";
 import paths from "./gulp/paths.js";
-
-$.task("serve", serve);
+// import { fonts, cleanTtf, copyFonts } from "./gulp/tasks/fonts.js";
 
 $.task("watch", () => {
-  $.watch("_src/**/*", scss);
-  $.watch("_src/**/*.pug", pug);
+  $.watch(paths.scss.src, scss);
+  $.watch(paths.pug.src, pug);
+  $.watch(paths.js.src, js);
 });
 
-$.task("develop", $.series(pug, scss));
+$.task("fonts", $.series(fonts, cleanTtf, copyFonts));
 
-$.task("default", $.series("develop", $.parallel("serve", "watch")));
+$.task("develop", $.series(cleanDev, $.parallel(pug, scss, "fonts", js)));
+
+$.task("default", $.series("develop", $.parallel(serve, "watch")));
 
 // $.task("default", pug);
