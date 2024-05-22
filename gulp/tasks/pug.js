@@ -2,12 +2,15 @@
 import * as $ from "../plugins.js";
 import argv from "../argv.js";
 import errorHandler from "../error.js";
-import path from "../paths.js";
+import paths from "../paths.js";
 
 let emittyPug;
 
 export const pug = () => {
   const isDev = $.mode.development();
+
+  const SRC = `${paths.pug.src}/pages/*.pug`;
+  const DESTINATION = paths.pug[isDev ? "dev" : "dist"];
 
   if (!emittyPug) {
     emittyPug = $.emitty.setup("_src", "pug", {
@@ -17,7 +20,7 @@ export const pug = () => {
 
   if (!argv.cache) {
     return $.gulp
-      .src(path.pug.src)
+      .src(SRC)
       .pipe(
         $.plumber({
           errorHandler,
@@ -29,13 +32,13 @@ export const pug = () => {
           pretty: argv.minifyHtml ? false : "\t",
         })
       )
-      .pipe($.dest(path[isDev ? "dev" : "dist"]));
+      .pipe($.dest(DESTINATION));
   }
 
   return new Promise((resolve, reject) => {
     emittyPug.scan(global.emittyPugChangedFile).then(() => {
       $.gulp
-        .src(path.pug.src)
+        .src(SRC)
         .pipe(
           $.plumber({
             errorHandler,
@@ -48,7 +51,7 @@ export const pug = () => {
             pretty: argv.minifyHtml ? false : "\t",
           })
         )
-        .pipe($.dest(path.pug[isDev ? "dev" : "dist"]))
+        .pipe($.dest(DESTINATION))
         .on("end", resolve)
         .on("error", reject);
     });

@@ -6,7 +6,7 @@
     background-color: tomato;
 
     @include hocus {
-      background-color: green;
+      background-color: red;
     }
   }
 }

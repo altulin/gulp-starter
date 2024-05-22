@@ -1,8 +1,12 @@
 import * as $ from "../plugins.js";
 import errorHandler from "../error.js";
-import path from "../paths.js";
+import paths from "../paths.js";
 
-const ttf = `${path.fonts.src}/*.ttf`;
+const isDev = $.mode.development();
+
+const SRC = paths.fonts.src;
+const DESTINATION = paths.fonts[isDev ? "dev" : "dist"];
+const ttf = `${SRC}/*.ttf`;
 
 const convert = (plugin) => {
   return $.gulp
@@ -13,7 +17,7 @@ const convert = (plugin) => {
       })
     )
     .pipe(plugin)
-    .pipe($.dest(path.fonts.src));
+    .pipe($.dest(SRC));
 };
 
 export const fonts = () => {
@@ -26,6 +30,6 @@ export const cleanTtf = () => {
 
 export const copyFonts = () => {
   return $.gulp
-    .src(`${path.fonts.src}/**/*`)
-    .pipe($.dest(`${path.fonts.dev}/fonts`));
+    .src(`${paths.fonts.src}/**/*`)
+    .pipe($.dest(`${DESTINATION}/fonts`));
 };

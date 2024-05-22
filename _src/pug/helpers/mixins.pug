@@ -1,6 +1,6 @@
 
 mixin svg(name)
-  - const sprite = `${baseDir}img/sprite.svg`
+  - const sprite = `${baseDir}img/sprites.svg`
   svg&attributes(attributes)
     use(xlink:href= `${sprite}#${name}`)
 

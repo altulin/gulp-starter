@@ -1,6 +1,6 @@
-const SRC = "_src";
-const dist = "build";
-const dev = "dev";
+const SRC = "./_src";
+const dist = "./build";
+const dev = "./dev";
 
 export default {
   scss: {
@@ -19,7 +19,7 @@ export default {
     dev: `${dev}/js`,
   },
   pug: {
-    src: `${SRC}/pug/pages/*.pug`,
+    src: `${SRC}/pug`,
     dist: `${dist}`,
     dev: `${dev}`,
   },
@@ -27,6 +27,26 @@ export default {
     src: `${SRC}/fonts`,
     dist: `${dist}`,
     dev: `${dev}`,
+  },
+  raster: {
+    src: `${SRC}/img/raster`,
+    dist: `${dist}/img`,
+    dev: `${dev}/img`,
+  },
+  webp: {
+    src: `${SRC}/img/webp`,
+    dist: `${dist}/img`,
+    dev: `${dev}/img`,
+  },
+  sprite: {
+    src: `${SRC}/img/sprite`,
+    dist: `${dist}/img`,
+    dev: `${dev}/img`,
+  },
+  svg: {
+    src: `${SRC}/img/svg`,
+    dist: `${dist}/img`,
+    dev: `${dev}/img`,
   },
 
   dev,

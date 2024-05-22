@@ -24,6 +24,13 @@ import ttf2woff2 from "gulp-ttf2woff2";
 import stream from "merge-stream";
 import webpackStream from "webpack-stream";
 import rename from "gulp-rename";
+import newer from "gulp-newer";
+import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
+import changed from "gulp-changed";
+import webp from "gulp-webp";
+import svgmin from "gulp-svgmin";
+import svgstore from "gulp-svgstore";
+import replace from "gulp-replace";
 
 const sass = gulpSass(dartSass);
 const mode = gulpMode(argv.mode);
@@ -57,4 +64,15 @@ export {
   stream,
   webpackStream,
   rename,
+  newer,
+  imagemin,
+  gifsicle,
+  mozjpeg,
+  optipng,
+  svgo,
+  changed,
+  webp,
+  svgmin,
+  svgstore,
+  replace,
 };
