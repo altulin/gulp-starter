@@ -29,13 +29,10 @@ $.task("watch", () => {
 });
 
 $.task("fonts", $.series(fonts, cleanTtf, copyFonts));
-
 $.task("img", $.series(optimizeRaster, convertToWebP, makeSvgSprite, svgMin));
-
 $.task(
   "develop",
   $.series(cleanDev, $.parallel(pug, scss, "fonts", js, "img"))
 );
-
 $.task("development", $.series("develop", $.parallel(serve, "watch")));
 $.task("production", $.series(cleanBuild, $.parallel("develop", robots)));

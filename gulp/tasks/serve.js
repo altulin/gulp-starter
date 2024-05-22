@@ -1,5 +1,6 @@
 import * as $ from "../plugins.js";
 import argv from "../argv.js";
+import paths from "../paths.js";
 
 export const serve = () => {
   let middleware = [];
@@ -12,10 +13,10 @@ export const serve = () => {
     notify: argv.notify,
     open: argv.open,
     port: argv.port,
-    files: ["./dev/**/*"],
+    files: [`${paths.dev}/**/*`],
 
     server: {
-      baseDir: "./dev",
+      baseDir: paths.dev,
       middleware,
     },
   });

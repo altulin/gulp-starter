@@ -1,7 +1,8 @@
 import * as $ from "./plugins.js";
+import { parseTime } from "./parseTime.js";
 
 const SRC = "./_src";
-const DIST = "./build";
+const DIST = "./dist";
 const DEV = "./dev";
 const IMG = `${SRC}/img`;
 
@@ -14,5 +15,7 @@ export default {
   webp: `${IMG}/webp`,
   sprite: `${IMG}/sprite`,
   svg: `${IMG}/svg`,
-  destination: $.mode.development() ? DEV : DIST,
+  destination: $.mode.development() ? DEV : `${DIST}_${parseTime()}`,
+  dist: DIST,
+  dev: DEV,
 };
