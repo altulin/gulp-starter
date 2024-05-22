@@ -7,10 +7,8 @@ import paths from "../paths.js";
 let emittyPug;
 
 export const pug = () => {
-  const isDev = $.mode.development();
-
-  const SRC = `${paths.pug.src}/pages/*.pug`;
-  const DESTINATION = paths.pug[isDev ? "dev" : "dist"];
+  const SRC = `${paths.pug}/pages/*.pug`;
+  const DESTINATION = paths.destination;
 
   if (!emittyPug) {
     emittyPug = $.emitty.setup("_src", "pug", {

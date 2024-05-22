@@ -1,10 +1,12 @@
 import * as $ from "../plugins.js";
 import argv from "../argv.js";
 import errorHandler from "../error.js";
-import path from "../paths.js";
+import paths from "../paths.js";
 
 export const scss = () => {
   const isDev = $.mode.development();
+  const SRC = `${paths.scss}/style.scss`;
+  const DESTINATION = `${paths.destination}/css/`;
 
   const postcssPlugins = [
     $.autoprefixer({
@@ -35,7 +37,7 @@ export const scss = () => {
   }
 
   return $.gulp
-    .src(["_src/scss/*.scss"])
+    .src(SRC)
     .pipe(
       $.plumber({
         errorHandler,
@@ -46,5 +48,5 @@ export const scss = () => {
     .pipe($.sass().on("error", $.sass.logError))
     .pipe($.postcss(postcssPlugins))
     .pipe($.if(isDev, $.sourcemaps.write(".")))
-    .pipe($.dest(path.scss[isDev ? "dev" : "dist"]));
+    .pipe($.dest(DESTINATION));
 };

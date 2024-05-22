@@ -19,13 +19,13 @@ import {
 } from "./gulp/tasks/img/index.js";
 
 $.task("watch", () => {
-  $.watch(paths.scss.src, scss);
-  $.watch(`${paths.pug.src}/**/*.pug`, pug);
-  $.watch(paths.js.src, js);
-  $.watch(paths.raster.src, optimizeRaster);
-  $.watch(paths.webp.src, convertToWebP);
-  $.watch(paths.sprite.src, makeSvgSprite);
-  $.watch(paths.svg.src, svgMin);
+  $.watch(`${paths.scss}/**/*.scss`, scss);
+  $.watch(`${paths.pug}/**/*.pug`, pug);
+  $.watch(`${paths.js}/**/*.js`, js);
+  $.watch(paths.raster, optimizeRaster);
+  $.watch(paths.webp, convertToWebP);
+  $.watch(paths.sprite, makeSvgSprite);
+  $.watch(paths.svg, svgMin);
 });
 
 $.task("fonts", $.series(fonts, cleanTtf, copyFonts));

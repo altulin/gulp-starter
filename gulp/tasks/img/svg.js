@@ -5,10 +5,8 @@ import errorHandler from "../../error.js";
 import { svgoConfig } from "./svgoConfig.js";
 
 export const svgMin = () => {
-  const isDev = $.mode.development();
-
-  const SRC = `${paths.svg.src}/*.svg`;
-  const DESTINATION = paths.svg[isDev ? "dev" : "dist"];
+  const SRC = `${paths.svg}/*.svg`;
+  const DESTINATION = `${paths.destination}/img`;
 
   return $.gulp
     .src(SRC)

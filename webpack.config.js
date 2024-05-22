@@ -1,19 +1,18 @@
 import TerserPlugin from "terser-webpack-plugin";
 import paths from "./gulp/paths.js";
 import argv from "./gulp/argv.js";
-import * as $ from "./gulp/plugins.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
 const getConfig = () => {
-  const isDev = $.mode.development();
   const __dirname = dirname(fileURLToPath(import.meta.url));
+  const DESTINATION = `${paths.destination}/js`;
 
   return {
-    entry: `./${paths.js.src}/main.js`,
+    entry: `./${paths.js}/main.js`,
     output: {
       filename: "script.js",
-      path: path.resolve(__dirname, paths.js[isDev ? "dev" : "dist"]),
+      path: path.resolve(__dirname, DESTINATION),
     },
     mode: "production",
     optimization: {

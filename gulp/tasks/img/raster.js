@@ -6,8 +6,8 @@ import errorHandler from "../../error.js";
 export const optimizeRaster = () => {
   const isDev = $.mode.development();
 
-  const SRC = `${paths.raster.src}/*.{png,jpg}`;
-  const DESTINATION = paths.raster[isDev ? "dev" : "dist"];
+  const SRC = `${paths.raster}/*.{png,jpg}`;
+  const DESTINATION = `${paths.destination}/img`;
 
   return $.gulp
     .src(SRC, { removeBOM: false })

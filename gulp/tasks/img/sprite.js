@@ -5,10 +5,8 @@ import errorHandler from "../../error.js";
 import { svgoConfig } from "./svgoConfig.js";
 
 export const makeSvgSprite = () => {
-  const isDev = $.mode.development();
-
-  const SRC = `${paths.sprite.src}/*.svg`;
-  const DESTINATION = paths.sprite[isDev ? "dev" : "dist"];
+  const SRC = `${paths.sprite}/*.svg`;
+  const DESTINATION = `${paths.destination}/img`;
 
   return $.gulp
     .src(SRC)

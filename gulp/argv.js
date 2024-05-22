@@ -13,7 +13,7 @@ const argv = {
   port: 3000,
   // для одностраничного приложения
   spa: false,
-  throwErrors: false,
+  throwErrors: true,
   robots: true,
   mode: {
     modes: ["test", "prod", "development", "production"],
