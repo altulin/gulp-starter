@@ -1,7 +1,16 @@
-import { actualYear } from "./modules/actualYear.js";
+// import * as dotenv from "dotenv";
 
-const handler = () => {
-  actualYear();
-};
+// dotenv.config({ path: ".env.development" });
+
+// import dotenv from "dotenv";
+// const result = dotenv.config();
+
+// if (result.error) {
+//   throw result.error;
+// }
+
+// console.log(process.env);
+
+const handler = () => {};
 
 document.addEventListener("DOMContentLoaded", handler);

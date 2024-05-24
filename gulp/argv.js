@@ -1,7 +1,7 @@
 const argv = {
   cache: true,
   debug: false,
-  // fix: false,
+
   minifyHtml: false,
   minifyCss: false,
   minifyJs: false,
