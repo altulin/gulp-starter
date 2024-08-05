@@ -17,7 +17,7 @@ export const makeSvgSprite = () => {
     )
     .pipe($.if(argv.debug, $.debug()))
     .pipe($.svgmin(svgoConfig()))
-    .pipe($.svgstore())
+    .pipe($.svgstore({ inlineSvg: true }))
     .pipe($.if(argv.minifySvg, $.replace(/^\t+$/gm, "")))
     .pipe($.if(argv.minifySvg, $.replace(/\n{2,}/g, "\n")))
     .pipe($.if(argv.minifySvg, $.replace("?><!", "?>\n<!")))
