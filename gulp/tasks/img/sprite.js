@@ -2,11 +2,14 @@ import * as $ from "../../plugins.js";
 import argv from "../../argv.js";
 import paths from "../../paths.js";
 import errorHandler from "../../error.js";
-import { svgoConfig } from "./svgoConfig.js";
+// import { svgoConfig } from "./svgoConfig.js";
+import { cleanSprite } from "../../del/index.js";
 
 export const makeSvgSprite = () => {
   const SRC = `${paths.sprite}/*.svg`;
   const DESTINATION = `${paths.destination}/img`;
+
+  cleanSprite();
 
   return $.gulp
     .src(SRC)
@@ -16,7 +19,16 @@ export const makeSvgSprite = () => {
       })
     )
     .pipe($.if(argv.debug, $.debug()))
-    .pipe($.svgmin(svgoConfig()))
+    .pipe(
+      $.svgmin({
+        js2svg: {
+          pretty: true,
+          indent: 2,
+        },
+        multipass: true,
+        plugins: [{ removeViewBox: false }],
+      })
+    )
     .pipe($.svgstore({ inlineSvg: true }))
     .pipe($.if(argv.minifySvg, $.replace(/^\t+$/gm, "")))
     .pipe($.if(argv.minifySvg, $.replace(/\n{2,}/g, "\n")))

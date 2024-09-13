@@ -24,7 +24,7 @@ $.task("watch", () => {
   $.watch(`${paths.js}/**/*.js`, js);
   $.watch(paths.raster, optimizeRaster);
   $.watch(paths.webp, convertToWebP);
-  $.watch(paths.sprite, makeSvgSprite);
+  $.watch(paths.sprite, $.series(makeSvgSprite));
   $.watch(paths.svg, svgMin);
 });
 

@@ -14,10 +14,16 @@ export const serve = () => {
     open: argv.open,
     port: argv.port,
     files: [`${paths.dev}/**/*`],
+    // files: [
+    //   "css/**/*.css",
+    //   "js/**/*.js",
+    //   "img/**/*",
+    //   "fonts/**/*",
+    //   "**/*.html",
+    // ],
 
     server: {
       baseDir: paths.dev,
-      middleware,
     },
   });
 };
