@@ -7,7 +7,7 @@ const argv = {
   minifyJs: false,
   minifySvg: false,
   // уведомления в браузере
-  notify: false,
+  notify: true,
   // открыть страницу при загрузке
   open: false,
   port: 3000,

@@ -1,7 +1,7 @@
 import * as $ from "../../plugins.js";
 import argv from "../../argv.js";
 import paths from "../../paths.js";
-import errorHandler from "../../error.js";
+import { makePlumber } from "../../error.js";
 
 export const optimizeRaster = () => {
   const isDev = $.mode.development();
@@ -14,11 +14,7 @@ export const optimizeRaster = () => {
     .pipe($.changed(DESTINATION))
     .pipe($.if(argv.cache, $.newer(SRC)))
     .pipe($.if(argv.debug, $.debug()))
-    .pipe(
-      $.plumber({
-        errorHandler,
-      })
-    )
+    .pipe(makePlumber("raster"))
     .pipe(
       $.imagemin({
         verbose: isDev,

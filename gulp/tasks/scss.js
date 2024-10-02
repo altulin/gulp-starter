@@ -1,6 +1,6 @@
 import * as $ from "../plugins.js";
 import argv from "../argv.js";
-import errorHandler from "../error.js";
+import { makePlumber } from "../error.js";
 import paths from "../paths.js";
 
 export const scss = () => {
@@ -38,11 +38,7 @@ export const scss = () => {
 
   return $.gulp
     .src(SRC)
-    .pipe(
-      $.plumber({
-        errorHandler,
-      })
-    )
+    .pipe(makePlumber("scss"))
     .pipe($.if(argv.debug, $.debug()))
     .pipe($.sourcemaps.init())
     .pipe($.sass().on("error", $.sass.logError))

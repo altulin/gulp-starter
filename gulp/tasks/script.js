@@ -1,5 +1,5 @@
 import * as $ from "../plugins.js";
-import errorHandler from "../error.js";
+import { makePlumber } from "../error.js";
 import getConfig from "../../webpack.config.js";
 import argv from "../argv.js";
 
@@ -12,11 +12,7 @@ export const js = () => {
 
   return $.gulp
     .src(entry)
-    .pipe(
-      $.plumber({
-        errorHandler,
-      })
-    )
+    .pipe(makePlumber("script"))
     .pipe($.if(argv.debug, $.debug()))
     .pipe($.webpackStream(config))
     .pipe($.rename(filename))

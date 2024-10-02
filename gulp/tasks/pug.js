@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import * as $ from "../plugins.js";
 import argv from "../argv.js";
-import errorHandler from "../error.js";
+import { makePlumber } from "../error.js";
 import paths from "../paths.js";
 
 let emittyPug;
@@ -19,11 +19,7 @@ export const pug = () => {
   if (!argv.cache) {
     return $.gulp
       .src(SRC)
-      .pipe(
-        $.plumber({
-          errorHandler,
-        })
-      )
+      .pipe(makePlumber("pug"))
       .pipe($.if(argv.debug, $.debug()))
       .pipe(
         $.pug({
@@ -37,11 +33,7 @@ export const pug = () => {
     emittyPug.scan(global.emittyPugChangedFile).then(() => {
       $.gulp
         .src(SRC)
-        .pipe(
-          $.plumber({
-            errorHandler,
-          })
-        )
+        .pipe(makePlumber("pug"))
         .pipe(emittyPug.filter(global.emittyPugChangedFile))
         .pipe($.if(argv.debug, $.debug()))
         .pipe(

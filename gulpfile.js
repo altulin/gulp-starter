@@ -4,11 +4,12 @@ import {
   serve,
   scss,
   pug,
-  fonts,
   cleanTtf,
   copyFonts,
   js,
   robots,
+  ttf2Woff,
+  ttf2Woff2,
 } from "./gulp/tasks/index.js";
 import paths from "./gulp/paths.js";
 import {
@@ -28,7 +29,7 @@ $.task("watch", () => {
   $.watch(paths.svg, svgMin);
 });
 
-$.task("fonts", $.series(fonts, cleanTtf, copyFonts));
+$.task("fonts", $.series(ttf2Woff, ttf2Woff2, cleanTtf, copyFonts));
 $.task("img", $.series(optimizeRaster, convertToWebP, makeSvgSprite, svgMin));
 $.task(
   "develop",

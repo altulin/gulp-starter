@@ -1,5 +1,5 @@
 import * as $ from "../plugins.js";
-import errorHandler from "../error.js";
+import { makePlumber } from "../error.js";
 import paths from "../paths.js";
 
 const SRC = paths.fonts;
@@ -8,18 +8,21 @@ const ttf = `${SRC}/*.ttf`;
 
 const convert = (plugin) => {
   return $.gulp
-    .src(ttf)
-    .pipe(
-      $.plumber({
-        errorHandler,
-      })
-    )
+    .src(ttf, {
+      encoding: false, // Important!
+      removeBOM: false,
+    })
+    .pipe(makePlumber("fonts"))
     .pipe(plugin)
     .pipe($.dest(SRC));
 };
 
-export const fonts = () => {
-  return $.stream(convert($.ttf2woff()), convert($.ttf2woff2()));
+export const ttf2Woff = () => {
+  return convert($.ttf2woff());
+};
+
+export const ttf2Woff2 = () => {
+  return convert($.ttf2woff2());
 };
 
 export const cleanTtf = () => {

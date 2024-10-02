@@ -1,7 +1,7 @@
 import * as $ from "../../plugins.js";
 import argv from "../../argv.js";
 import paths from "../../paths.js";
-import errorHandler from "../../error.js";
+import { makePlumber } from "../../error.js";
 // import { svgoConfig } from "./svgoConfig.js";
 import { cleanSprite } from "../../del/index.js";
 
@@ -13,11 +13,7 @@ export const makeSvgSprite = () => {
 
   return $.gulp
     .src(SRC)
-    .pipe(
-      $.plumber({
-        errorHandler,
-      })
-    )
+    .pipe(makePlumber("sprite"))
     .pipe($.if(argv.debug, $.debug()))
     .pipe(
       $.svgmin({

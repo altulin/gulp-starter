@@ -1,18 +1,12 @@
 import * as $ from "./plugins.js";
-import argv from "./argv.js";
 
-const errorHandler = () => {
-  let errorHandler;
-
-  if (argv.throwErrors) {
-    errorHandler = false;
-  } else if (argv.notify) {
-    errorHandler = $.notify.onError("<%= error.message %>");
-  } else {
-    errorHandler = null;
-  }
-
-  return errorHandler;
+export const makePlumber = (name) => {
+  return $.plumber({
+    errorHandler: $.notify.onError(function (err) {
+      return {
+        title: name,
+        message: err.message,
+      };
+    }),
+  });
 };
-
-export default errorHandler;
