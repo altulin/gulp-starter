@@ -1,3 +1,6 @@
+@use "./variables" as v;
+@use "./mixins.scss" as m;
+
 *,
 *::before,
 *::after {
@@ -12,13 +15,13 @@ html {
 }
 
 body {
-  @include font("Roboto");
+  @include m.font("Roboto");
 
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  color: $text-dark;
+  color: v.$text-dark;
 
   &::-webkit-scrollbar {
     width: 0.8rem;
@@ -106,11 +109,11 @@ input:-webkit-autofill:active {
 }
 
 .container {
-  max-width: $width-dt + $gap * 2;
+  max-width: v.$width-dt + v.$gap * 2;
   margin-right: auto;
   margin-left: auto;
-  padding-right: $gap;
-  padding-left: $gap;
+  padding-right: v.$gap;
+  padding-left: v.$gap;
 }
 
 main {

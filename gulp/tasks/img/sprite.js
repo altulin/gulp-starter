@@ -11,8 +11,7 @@ export const makeSvgSprite = () => {
 
   cleanSprite();
 
-  return $.gulp
-    .src(SRC)
+  return $.src(SRC)
     .pipe(makePlumber("sprite"))
     .pipe($.if(argv.debug, $.debug()))
 

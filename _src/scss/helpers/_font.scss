@@ -1,1 +1,3 @@
-@include font-load(Roboto, Regular, 400, normal);
+@use "./mixins" as m;
+
+@include m.font-load(Roboto, Regular, 400, normal);

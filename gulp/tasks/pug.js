@@ -17,8 +17,7 @@ export const pug = () => {
   }
 
   if (!argv.cache) {
-    return $.gulp
-      .src(SRC)
+    return $.src(SRC)
       .pipe(makePlumber("pug"))
       .pipe($.if(argv.debug, $.debug()))
       .pipe(
@@ -31,8 +30,7 @@ export const pug = () => {
 
   return new Promise((resolve, reject) => {
     emittyPug.scan(global.emittyPugChangedFile).then(() => {
-      $.gulp
-        .src(SRC)
+      $.src(SRC)
         .pipe(makePlumber("pug"))
         .pipe(emittyPug.filter(global.emittyPugChangedFile))
         .pipe($.if(argv.debug, $.debug()))

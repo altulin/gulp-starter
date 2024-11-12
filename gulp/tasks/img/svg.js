@@ -8,8 +8,7 @@ export const svgMin = () => {
   const SRC = `${paths.svg}/*.svg`;
   const DESTINATION = `${paths.destination}/img`;
 
-  return $.gulp
-    .src(SRC)
+  return $.src(SRC)
     .pipe(makePlumber("svg"))
     .pipe($.if(argv.debug, $.debug()))
     .pipe($.svgmin(svgoConfig()))

@@ -10,5 +10,5 @@ export const robots = () => {
   const SRC = `.robots.${isTest ? "development" : "production"}.txt`;
   const DESTINATION = paths.destination;
 
-  return $.gulp.src(SRC).pipe($.rename("robots.txt")).pipe($.dest(DESTINATION));
+  return $.src(SRC).pipe($.rename("robots.txt")).pipe($.dest(DESTINATION));
 };

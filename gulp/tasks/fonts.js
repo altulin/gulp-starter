@@ -7,11 +7,10 @@ const DESTINATION = `${paths.destination}/fonts`;
 const ttf = `${SRC}/*.ttf`;
 
 const convert = (plugin) => {
-  return $.gulp
-    .src(ttf, {
-      encoding: false, // Important!
-      removeBOM: false,
-    })
+  return $.src(ttf, {
+    encoding: false, // Important!
+    removeBOM: false,
+  })
     .pipe(makePlumber("fonts"))
     .pipe(plugin)
     .pipe($.dest(SRC));
@@ -30,5 +29,5 @@ export const cleanTtf = () => {
 };
 
 export const copyFonts = () => {
-  return $.gulp.src(`${SRC}/**/*`).pipe($.dest(DESTINATION));
+  return $.src(`${SRC}/**/*`).pipe($.dest(DESTINATION));
 };

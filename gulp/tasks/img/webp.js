@@ -7,8 +7,7 @@ export const convertToWebP = () => {
   const SRC = `${paths.webp}/*.{png,jpg}`;
   const DESTINATION = `${paths.destination}/img`;
 
-  return $.gulp
-    .src(SRC, { removeBOM: false })
+  return $.src(SRC, { removeBOM: false })
     .pipe($.changed(DESTINATION))
     .pipe($.if(argv.cache, $.newer(SRC)))
     .pipe($.if(argv.debug, $.debug()))

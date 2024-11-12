@@ -36,8 +36,7 @@ export const scss = () => {
     );
   }
 
-  return $.gulp
-    .src(SRC)
+  return $.src(SRC)
     .pipe(makePlumber("scss"))
     .pipe($.if(argv.debug, $.debug()))
     .pipe($.sourcemaps.init())

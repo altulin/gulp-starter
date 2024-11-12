@@ -1,6 +1,6 @@
 import argv from "./argv.js";
 
-import gulp, { task, series, parallel, watch, dest } from "gulp";
+import { series, parallel, watch, dest, src } from "gulp";
 import browserSync from "browser-sync";
 import connectHistoryApiFallback from "connect-history-api-fallback";
 import autoprefixer from "autoprefixer";
@@ -36,11 +36,10 @@ const sass = gulpSass(dartSass);
 const mode = gulpMode(argv.mode);
 
 export {
-  task,
+  src,
   series,
   parallel,
   watch,
-  gulp,
   browserSync,
   connectHistoryApiFallback,
   autoprefixer,

@@ -10,8 +10,7 @@ export const js = () => {
     output: { filename, path },
   } = config;
 
-  return $.gulp
-    .src(entry)
+  return $.src(entry)
     .pipe(makePlumber("script"))
     .pipe($.if(argv.debug, $.debug()))
     .pipe($.webpackStream(config))
