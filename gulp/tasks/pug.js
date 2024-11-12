@@ -19,7 +19,6 @@ export const pug = () => {
   if (!argv.cache) {
     return $.src(SRC)
       .pipe(makePlumber("pug"))
-      .pipe($.if(argv.debug, $.debug()))
       .pipe(
         $.pug({
           pretty: argv.minifyHtml ? false : "\t",
@@ -33,7 +32,6 @@ export const pug = () => {
       $.src(SRC)
         .pipe(makePlumber("pug"))
         .pipe(emittyPug.filter(global.emittyPugChangedFile))
-        .pipe($.if(argv.debug, $.debug()))
         .pipe(
           $.pug({
             pretty: argv.minifyHtml ? false : "\t",

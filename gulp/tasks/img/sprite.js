@@ -1,40 +1,36 @@
 import * as $ from "../../plugins.js";
-import argv from "../../argv.js";
+// import argv from "../../argv.js";
 import paths from "../../paths.js";
 import { makePlumber } from "../../error.js";
 // import { svgoConfig } from "./svgoConfig.js";
 import { cleanSprite } from "../../del/index.js";
+import browser from "../../browser.js";
 
 export const makeSvgSprite = () => {
   const SRC = `${paths.sprite}/*.svg`;
   const DESTINATION = `${paths.destination}/img`;
 
   cleanSprite();
-
   return $.src(SRC)
     .pipe(makePlumber("sprite"))
-    .pipe($.if(argv.debug, $.debug()))
-
     .pipe(
-      $.svgmin({
-        js2svg: {
-          pretty: true,
-          indent: 2,
+      $.sprite({
+        mode: {
+          inline: true,
+          symbol: {
+            // symbol mode to build the SVG
+            dest: "", // destination folder
+            sprite: "sprites.svg", //sprite name
+            example: false, // do not build sample page
+          },
         },
-        multipass: true,
-        plugins: [{ removeViewBox: false }],
+        svg: {
+          xmlDeclaration: false, // strip out the XML attribute
+          doctypeDeclaration: false, // don't include the !DOCTYPE declaration
+        },
       })
     )
 
-    .pipe($.svgstore({ inlineSvg: true }))
-
-    .pipe($.if(argv.minifySvg, $.replace(/^\t+$/gm, "")))
-    .pipe($.if(argv.minifySvg, $.replace(/\n{2,}/g, "\n")))
-    .pipe($.if(argv.minifySvg, $.replace("?><!", "?>\n<!")))
-    .pipe($.if(argv.minifySvg, $.replace("><svg", ">\n<svg")))
-    .pipe($.if(argv.minifySvg, $.replace("><defs", ">\n\t<defs")))
-    .pipe($.if(argv.minifySvg, $.replace("><symbol", ">\n<symbol")))
-    .pipe($.if(argv.minifySvg, $.replace("></svg", ">\n</svg")))
-    .pipe($.rename("sprites.svg"))
-    .pipe($.dest(DESTINATION));
+    .pipe($.dest(DESTINATION))
+    .pipe(browser.stream());
 };

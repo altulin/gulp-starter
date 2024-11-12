@@ -8,7 +8,6 @@ import plumber from "gulp-plumber";
 import gulpif from "gulp-if";
 import sourcemaps from "gulp-sourcemaps";
 import notify from "gulp-notify";
-import debug from "gulp-debug";
 import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
 import postcss from "gulp-postcss";
@@ -29,8 +28,8 @@ import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
 import changed from "gulp-changed";
 import webp from "gulp-webp";
 import svgmin from "gulp-svgmin";
-import svgstore from "gulp-svgstore";
 import replace from "gulp-replace";
+import sprite from "gulp-svg-sprite";
 
 const sass = gulpSass(dartSass);
 const mode = gulpMode(argv.mode);
@@ -47,7 +46,6 @@ export {
   gulpif as if,
   sourcemaps,
   notify,
-  debug,
   sass,
   postcss,
   dest,
@@ -72,6 +70,6 @@ export {
   changed,
   webp,
   svgmin,
-  svgstore,
   replace,
+  sprite,
 };

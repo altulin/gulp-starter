@@ -38,7 +38,6 @@ export const scss = () => {
 
   return $.src(SRC)
     .pipe(makePlumber("scss"))
-    .pipe($.if(argv.debug, $.debug()))
     .pipe($.sourcemaps.init())
     .pipe($.sass().on("error", $.sass.logError))
     .pipe($.postcss(postcssPlugins))

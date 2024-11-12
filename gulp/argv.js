@@ -1,6 +1,5 @@
 const argv = {
   cache: false,
-  debug: false,
 
   minifyHtml: false,
   minifyCss: false,

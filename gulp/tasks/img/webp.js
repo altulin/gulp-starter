@@ -10,7 +10,6 @@ export const convertToWebP = () => {
   return $.src(SRC, { removeBOM: false })
     .pipe($.changed(DESTINATION))
     .pipe($.if(argv.cache, $.newer(SRC)))
-    .pipe($.if(argv.debug, $.debug()))
     .pipe(makePlumber("webp"))
     .pipe($.webp())
     .pipe($.dest(DESTINATION));
