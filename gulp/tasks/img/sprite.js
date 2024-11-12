@@ -15,6 +15,7 @@ export const makeSvgSprite = () => {
     .src(SRC)
     .pipe(makePlumber("sprite"))
     .pipe($.if(argv.debug, $.debug()))
+
     .pipe(
       $.svgmin({
         js2svg: {
@@ -25,7 +26,9 @@ export const makeSvgSprite = () => {
         plugins: [{ removeViewBox: false }],
       })
     )
+
     .pipe($.svgstore({ inlineSvg: true }))
+
     .pipe($.if(argv.minifySvg, $.replace(/^\t+$/gm, "")))
     .pipe($.if(argv.minifySvg, $.replace(/\n{2,}/g, "\n")))
     .pipe($.if(argv.minifySvg, $.replace("?><!", "?>\n<!")))

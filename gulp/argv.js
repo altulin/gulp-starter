@@ -5,7 +5,7 @@ const argv = {
   minifyHtml: false,
   minifyCss: false,
   minifyJs: false,
-  minifySvg: false,
+  minifySvg: true,
   // уведомления в браузере
   notify: true,
   // открыть страницу при загрузке
