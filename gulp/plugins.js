@@ -18,8 +18,8 @@ import gulpMode from "gulp-mode";
 import emitty from "emitty";
 import pug from "gulp-pug";
 import { deleteAsync } from "del";
-import ttf2woff from "gulp-ttf2woff";
-import ttf2woff2 from "gulp-ttf2woff2";
+// import ttf2woff from "gulp-ttf2woff";
+// import ttf2woff2 from "gulp-ttf2woff2";
 import stream from "merge-stream";
 import webpackStream from "webpack-stream";
 import rename from "gulp-rename";
@@ -56,8 +56,8 @@ export {
   emitty,
   pug,
   deleteAsync,
-  ttf2woff,
-  ttf2woff2,
+  // ttf2woff,
+  // ttf2woff2,
   stream,
   webpackStream,
   rename,

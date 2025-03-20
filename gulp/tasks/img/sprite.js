@@ -16,18 +16,21 @@ export const makeSvgSprite = () => {
     .pipe(
       $.sprite({
         mode: {
-          inline: true,
-          symbol: {
-            // symbol mode to build the SVG
-            dest: "", // destination folder
-            sprite: "sprites.svg", //sprite name
-            example: false, // do not build sample page
+          // inline: true,
+          // symbol: {
+          //   // symbol mode to build the SVG
+          //   dest: "", // destination folder
+          //   sprite: "sprites.svg", //sprite name
+          //   example: false, // do not build sample page
+          // },
+          stack: {
+            sprite: "../sprites.svg",
           },
         },
-        svg: {
-          xmlDeclaration: false, // strip out the XML attribute
-          doctypeDeclaration: false, // don't include the !DOCTYPE declaration
-        },
+        // svg: {
+        //   xmlDeclaration: false, // strip out the XML attribute
+        //   doctypeDeclaration: false, // don't include the !DOCTYPE declaration
+        // },
       })
     )
 

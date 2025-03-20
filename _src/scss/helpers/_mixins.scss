@@ -42,8 +42,8 @@
     font-weight: $weight;
     font-family: $name;
     font-style: $style;
-    src: url("/fonts/" + $name + "-" + $size + ".woff2") format("woff2");
-    src: url("/fonts/" + $name + "-" + $size + ".woff") format("woff");
+    src: url("../fonts/" + $name + "-" + $size + ".woff2") format("woff2");
+    src: url("../fonts/" + $name + "-" + $size + ".woff") format("woff");
     font-display: swap;
   }
 }

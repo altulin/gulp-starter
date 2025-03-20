@@ -16,7 +16,8 @@ const watch = (cb) => {
 };
 
 const fonts = (cb) => {
-  $.series(t.ttf2Woff, t.ttf2Woff2, t.cleanTtf, t.copyFonts)();
+  // $.series(t.ttf2Woff, t.ttf2Woff2, t.cleanTtf, t.copyFonts)();
+  $.series(t.cleanTtf, t.copyFonts)();
   cb();
 };
 

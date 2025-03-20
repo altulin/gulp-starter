@@ -1,5 +1,5 @@
 import * as $ from "./plugins.js";
-import { parseTime } from "./parseTime.js";
+// import { parseTime } from "./parseTime.js";
 
 const SRC = "./_src";
 const DIST = "./dist";
@@ -15,7 +15,8 @@ export default {
   webp: `${IMG}/webp`,
   sprite: `${IMG}/sprite`,
   svg: `${IMG}/svg`,
-  destination: $.mode.development() ? DEV : `${DIST}_${parseTime()}`,
+  // destination: $.mode.development() ? DEV : `${DIST}_${parseTime()}`,
+  destination: $.mode.development() ? DEV : DIST,
   dist: DIST,
   dev: DEV,
 };

@@ -15,7 +15,7 @@ mixin img-retina(name, type, alt, className, width, height, ...args)
   - let sourceWebp = {};
   - let img = {};
 
-  - sourceWebp[srcsetAttr] = `${baseDir}img/webp/${name}.webp 1x, ${baseDir}img/webp/${name}@2x.webp 2x`;
+  - sourceWebp[srcsetAttr] = `${baseDir}img/${name}.webp 1x, ${baseDir}img/${name}@2x.webp 2x`;
   - img.class = attributes.lazy ? `lazyload ${className}` : `${className}`;
   - img[srcAttr] = `${baseDir}img/${name}.${type}`;
   - img[srcsetAttr] = `${baseDir}img/${name}.${type} 1x, ${baseDir}img/${name}@2x.${type} 2x`;
@@ -30,7 +30,7 @@ mixin img-retina(name, type, alt, className, width, height, ...args)
 
 
       each item in args
-        - sourceArgsWebp[srcsetAttr] = `${baseDir}img/webp/${name}-${item}.webp 1x, ${baseDir}img/webp/${name}-${item}@2x.webp 2x`;
+        - sourceArgsWebp[srcsetAttr] = `${baseDir}img/${name}-${item}.webp 1x, ${baseDir}img/${name}-${item}@2x.webp 2x`;
         - sourceArgs[srcsetAttr] = `${baseDir}img/${name}-${item}.${type} 1x, ${baseDir}img/${name}-${item}@2x.${type} 2x`;
         - let media = `(max-width: ${item}px)`
 
