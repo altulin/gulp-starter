@@ -32,7 +32,7 @@ const img = (cb) => {
 };
 
 const develop = (cb) => {
-  $.series(cleanDev, $.parallel(t.pug, t.scss, fonts, t.js, img))();
+  $.series(cleanDev, $.series(t.pug, t.scss, fonts, t.js, img))();
   cb();
 };
 
