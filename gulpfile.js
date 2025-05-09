@@ -37,7 +37,7 @@ const develop = (cb) => {
 };
 
 export const development = (cb) => {
-  $.series(develop, $.parallel(t.server, watch))();
+  $.series(develop, $.series(t.server, watch))();
   cb();
 };
 

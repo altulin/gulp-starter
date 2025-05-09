@@ -12,6 +12,24 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
+
+  // font-size: 0.83vw;
+
+  @include m.mw(v.$ldt) {
+    font-size: 1.1vw;
+  }
+
+  @include m.mw(v.$dt) {
+    font-size: 1.2vw;
+  }
+
+  @include m.mw(v.$tb) {
+    font-size: 2.66vw;
+  }
+
+  @include m.mw(v.$ph) {
+    font-size: 3.73vw;
+  }
 }
 
 body {
